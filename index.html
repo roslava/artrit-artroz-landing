@@ -444,9 +444,11 @@
     .diff-card,
     .diag-card {
       position: relative;
-      border: 1px solid var(--color-border);
+      border: none;
       border-radius: var(--radius-card);
-      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease;
+      /* обычная обводка без «белого кольца» рядом с beam */
+      box-shadow: inset 0 0 0 1px var(--color-border);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
     }
     .about-card::before,
     .symptom-block::before,
@@ -494,7 +496,7 @@
       .diff-card:hover,
       .diag-card:hover {
         transform: translateY(-6px);
-        border-color: transparent;
+        box-shadow: none;
       }
       .about-card:hover::before,
       .symptom-block:hover::before,
@@ -607,7 +609,7 @@
     .diff-card {
       background: #fff;
       padding: 0;
-      /* overflow не на карточке — иначе режет animated beam; полукруг клипается в .illustration-slot */
+      overflow: hidden; /* обрезает картинку скруглением карточки */
       display: flex;
       flex-direction: row;
       align-items: stretch;
