@@ -857,10 +857,15 @@
     .doctor-section {
       background: #fff;
     }
+    .doctors-list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
     .doctor-grid {
       display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 48px;
+      grid-template-columns: 240px 1fr;
+      gap: 40px;
       align-items: center;
     }
     .doctor-photo-slot {
@@ -868,7 +873,7 @@
       aspect-ratio: 3 / 4;
       border-radius: var(--radius-card);
       background: var(--color-surface-soft);
-      border: 1px dashed rgba(0, 78, 137, 0.28);
+      border: 1px solid var(--color-border);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -878,6 +883,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center top;
+      display: block;
     }
     .doctor-label {
       font-size: 14px;
@@ -888,22 +895,22 @@
       margin-bottom: 12px;
     }
     .doctor-grid h2 {
-      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-size: clamp(1.5rem, 3.5vw, 1.85rem);
       font-weight: 500;
       letter-spacing: -0.02em;
       margin-bottom: 8px;
     }
     .doctor-role {
-      font-size: 16px;
+      font-size: 15px;
       color: var(--color-ink-soft);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
     .doctor-text {
       font-size: 16px;
       line-height: 1.55;
       color: var(--color-ink-soft);
-      margin-bottom: 28px;
-      max-width: 48ch;
+      margin-bottom: 24px;
+      max-width: 52ch;
     }
     .cta {
       background: var(--color-hero-bg);
@@ -1192,7 +1199,7 @@
         <li><a href="#symptoms" data-nav>Симптомы</a></li>
         <li><a href="#diagnostics" data-nav>Диагностика</a></li>
         <li><a href="#treatment" data-nav>Лечение</a></li>
-        <li><a href="#doctor" data-nav>Специалист</a></li>
+        <li><a href="#doctor" data-nav>Специалисты</a></li>
         <li><a href="#cta" data-nav>Запись</a></li>
       </ul>
       <div class="nav-right">
@@ -1435,28 +1442,46 @@
       </div>
     </section>
 
-    <!-- DOCTOR -->
+    <!-- DOCTORS -->
     <section class="doctor-section" id="doctor">
       <div class="container">
         <div class="section-head">
-          <div class="section-head-left">Специалист</div>
+          <div class="section-head-left">Специалисты</div>
           <span class="section-num">(05)</span>
         </div>
-        <div class="doctor-grid">
-          <div class="doctor-photo-slot" id="ill-doctor">
-            <span class="illustration-slot-label">Иллюстрация врача</span>
-          </div>
-          <div>
-            <h2>Наталья Васильевна Журбина</h2>
-            <p class="doctor-role">Врач-ревматолог · кандидат медицинских наук · стаж 46 лет</p>
-            <p class="doctor-text">
-              Наталья Васильевна проводит диагностику и лечение ревматологических заболеваний. На консультации врач оценивает жалобы, проводит осмотр и определяет дальнейшую тактику.
-            </p>
-            <a href="#cta" class="btn-ember">
-              Записаться на консультацию
-              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-            </a>
-          </div>
+        <div class="doctors-list">
+          <article class="doctor-grid">
+            <div class="doctor-photo-slot" id="ill-doctor-zhurbina">
+              <span class="illustration-slot-label">Фото врача</span>
+            </div>
+            <div>
+              <h2>Наталья Васильевна Журбина</h2>
+              <p class="doctor-role">Врач-ревматолог · кандидат медицинских наук · стаж 46 лет</p>
+              <p class="doctor-text">
+                Наталья Васильевна проводит диагностику и лечение ревматологических заболеваний. На консультации врач оценивает жалобы, проводит осмотр и определяет дальнейшую тактику.
+              </p>
+              <a href="#cta" class="btn-ember">
+                Записаться на консультацию
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+          <article class="doctor-grid">
+            <div class="doctor-photo-slot" id="ill-doctor-kolesnikova">
+              <img src="https://storage.yandexcloud.net/mcv26/daria_yuryevna00.jpg" alt="Колесникова Дарья Юрьевна — врач-невролог, физиотерапевт" width="400" height="533" loading="lazy" />
+            </div>
+            <div>
+              <h2>Дарья Юрьевна Колесникова</h2>
+              <p class="doctor-role">Врач-невролог · физиотерапевт · стаж более 13 лет</p>
+              <p class="doctor-text">
+                Дарья Юрьевна сочетает медикаментозную терапию и физиотерапевтические методы. На консультации проводит осмотр, оценивает результаты обследований и подбирает индивидуальную тактику лечения с учётом клинической картины.
+              </p>
+              <a href="#cta" class="btn-ember">
+                Записаться на консультацию
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
