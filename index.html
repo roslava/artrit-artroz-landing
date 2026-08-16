@@ -662,7 +662,7 @@
       color: var(--color-ink-soft);
       line-height: 1.55;
     }
-    /* Мобиле: полукруг сверху на всю ширину */
+    /* Мобиле: иллюстрация 16:9 (как YouTube), снизу скругление, далее текст */
     @media (max-width: 600px) {
       .diff-card {
         flex-direction: column;
@@ -672,7 +672,7 @@
         width: 100%;
         max-width: none;
         min-width: 0;
-        aspect-ratio: 2 / 1;
+        aspect-ratio: 16 / 9;
         height: auto;
         align-self: stretch;
         border-radius: 0 0 50% 50%;
