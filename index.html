@@ -614,20 +614,22 @@
       align-items: stretch;
       min-height: 180px;
     }
+    /* Десктоп: полукруг слева на всю высоту карточки (диаметр = высота) */
     .diff-card .illustration-slot {
       position: relative;
       border: none;
       flex: 0 0 auto;
-      width: auto;
-      height: auto;
       align-self: stretch;
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
+      height: auto;
+      /* ширина = половина высоты → полукруг с border-radius справа */
+      aspect-ratio: 1 / 2;
+      width: auto;
+      min-width: 90px;
+      max-width: 40%;
+      border-radius: 0 50% 50% 0;
       overflow: hidden;
       background: var(--color-surface-soft);
       margin: 0;
-      min-width: 140px;
-      max-width: 45%;
     }
     .diff-card .illustration-slot img {
       position: absolute;
@@ -660,6 +662,7 @@
       color: var(--color-ink-soft);
       line-height: 1.55;
     }
+    /* Мобиле: полукруг сверху на всю ширину */
     @media (max-width: 600px) {
       .diff-card {
         flex-direction: column;
@@ -667,15 +670,18 @@
       }
       .diff-card .illustration-slot {
         width: 100%;
-        max-width: 280px;
-        aspect-ratio: 1 / 1;
-        align-self: center;
-        margin: 20px 20px 0;
+        max-width: none;
+        min-width: 0;
+        aspect-ratio: 2 / 1;
+        height: auto;
+        align-self: stretch;
+        border-radius: 0 0 50% 50%;
+        margin: 0;
       }
       .diff-card-body {
         padding: 20px 24px 28px;
-        text-align: center;
-        align-items: center;
+        text-align: left;
+        align-items: flex-start;
       }
     }
     .pain-scale {
