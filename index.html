@@ -442,57 +442,69 @@
     .method-card,
     .why-card,
     .diff-card,
-    .pain-scale {
+    .diag-card {
       position: relative;
-      border: 1px solid transparent;
+      border: 1px solid var(--color-border);
       border-radius: var(--radius-card);
       isolation: isolate;
-      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease;
     }
     .about-card::before,
     .symptom-block::before,
     .method-card::before,
     .why-card::before,
     .diff-card::before,
-    .pain-scale::before {
+    .diag-card::before {
       content: '';
       position: absolute;
-      inset: 0;
+      inset: -1px;
       border-radius: inherit;
-      padding: 1px;
-      background: linear-gradient(
-        var(--card-beam, 0deg),
-        rgba(255, 107, 53, 0.55),
-        rgba(0, 78, 137, 0.12),
-        rgba(255, 107, 53, 0.35)
+      padding: 1.5px;
+      background: conic-gradient(
+        from var(--card-beam, 0deg),
+        transparent 0deg,
+        color-mix(in srgb, #FF6B35 15%, transparent) 20deg,
+        #FF6B35 50deg,
+        color-mix(in srgb, #FF6B35 40%, #fff) 58deg,
+        transparent 70deg,
+        transparent 180deg,
+        color-mix(in srgb, #1A659E 20%, transparent) 200deg,
+        #1A659E 230deg,
+        color-mix(in srgb, #1A659E 35%, #fff) 238deg,
+        transparent 250deg,
+        transparent 360deg
       );
       -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
       mask:
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
       mask-composite: exclude;
       pointer-events: none;
       opacity: 0;
       transition: opacity 0.35s ease;
+      z-index: 1;
     }
     @media (hover: hover) and (pointer: fine) {
       .about-card:hover,
       .symptom-block:hover,
       .method-card:hover,
       .why-card:hover,
-      .diff-card:hover {
-        transform: translateY(-4px);
+      .diff-card:hover,
+      .diag-card:hover {
+        transform: translateY(-6px);
+        border-color: transparent;
       }
       .about-card:hover::before,
       .symptom-block:hover::before,
       .method-card:hover::before,
       .why-card:hover::before,
-      .diff-card:hover::before {
+      .diff-card:hover::before,
+      .diag-card:hover::before {
         opacity: 1;
-        animation: card-beam-spin 4s linear infinite;
+        animation: card-beam-spin 3.2s linear infinite;
       }
     }
     .about-card {
@@ -532,7 +544,7 @@
     }
     .symptoms-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
     .symptom-block {
@@ -1035,8 +1047,6 @@
     .diag-card {
       background: #fff;
       padding: 24px;
-      border-radius: var(--radius-card);
-      border: 1px solid var(--color-border);
     }
     .diag-card h3 {
       font-size: 16px;
