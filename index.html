@@ -662,7 +662,7 @@
       color: var(--color-ink-soft);
       line-height: 1.55;
     }
-    /* Мобиле: иллюстрация строго 16:9; скругление — углами карточки (overflow) */
+    /* Мобиле: выше illustration-slot + полукруг снизу; у текста меньше вертикальные паддинги */
     @media (max-width: 600px) {
       .diff-card {
         flex-direction: column;
@@ -673,17 +673,18 @@
         max-width: none;
         min-width: 0;
         flex: 0 0 auto;
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 4 / 3;
         height: auto;
+        min-height: 200px;
         align-self: stretch;
-        border-radius: 0;
+        border-radius: 0 0 50% 50%;
         margin: 0;
       }
       .diff-card .illustration-slot img {
         object-position: center center;
       }
       .diff-card-body {
-        padding: 20px 24px 28px;
+        padding: 12px 20px 18px;
         text-align: left;
         align-items: flex-start;
       }
