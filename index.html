@@ -662,7 +662,7 @@
       color: var(--color-ink-soft);
       line-height: 1.55;
     }
-    /* Мобиле: иллюстрация 16:9 (как YouTube), снизу скругление, далее текст */
+    /* Мобиле: иллюстрация строго 16:9; скругление — углами карточки (overflow) */
     @media (max-width: 600px) {
       .diff-card {
         flex-direction: column;
@@ -672,11 +672,15 @@
         width: 100%;
         max-width: none;
         min-width: 0;
+        flex: 0 0 auto;
         aspect-ratio: 16 / 9;
         height: auto;
         align-self: stretch;
-        border-radius: 0 0 50% 50%;
+        border-radius: 0;
         margin: 0;
+      }
+      .diff-card .illustration-slot img {
+        object-position: center center;
       }
       .diff-card-body {
         padding: 20px 24px 28px;
