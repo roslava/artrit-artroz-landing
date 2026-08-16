@@ -589,7 +589,7 @@
     }
     .diff-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 24px;
       margin-top: 24px;
     }
@@ -597,19 +597,30 @@
       background: #fff;
       padding: 0;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      align-items: stretch;
+      min-height: 160px;
     }
     .diff-card .illustration-slot {
       border: none;
       border-radius: 0;
-      aspect-ratio: 1;
+      aspect-ratio: auto;
+      width: 100%;
+      height: 100%;
+      min-height: 160px;
       background: var(--color-surface-soft);
     }
+    .diff-card .illustration-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     .diff-card-body {
-      padding: 24px;
+      padding: 28px 32px;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       gap: 10px;
     }
     .diff-card h3 {
@@ -624,6 +635,15 @@
       font-size: 15px;
       color: var(--color-ink-soft);
       line-height: 1.55;
+    }
+    @media (max-width: 600px) {
+      .diff-card {
+        grid-template-columns: 1fr;
+      }
+      .diff-card .illustration-slot {
+        aspect-ratio: 16 / 10;
+        min-height: 0;
+      }
     }
     .pain-scale {
       background: #fff;
@@ -1155,7 +1175,7 @@
         <div class="diff-grid">
           <article class="diff-card">
             <div class="illustration-slot" id="ill-artrit">
-              <span class="illustration-slot-label">Иллюстрация</span>
+              <img src="https://storage.yandexcloud.net/mcv26/artrit_01.webp" alt="Артрит" width="400" height="400" loading="lazy" />
             </div>
             <div class="diff-card-body">
               <h3><i class="fa-solid fa-fire" aria-hidden="true"></i> Артрит</h3>
@@ -1164,7 +1184,7 @@
           </article>
           <article class="diff-card">
             <div class="illustration-slot" id="ill-artroz">
-              <span class="illustration-slot-label">Иллюстрация</span>
+              <img src="https://storage.yandexcloud.net/mcv26/artroz_01.webp" alt="Артроз" width="400" height="400" loading="lazy" />
             </div>
             <div class="diff-card-body">
               <h3><i class="fa-solid fa-bone" aria-hidden="true"></i> Артроз</h3>
