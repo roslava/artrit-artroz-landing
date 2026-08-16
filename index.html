@@ -609,20 +609,22 @@
       background: #fff;
       padding: 0;
       overflow: hidden;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-      align-items: center;
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
     }
     .diff-card .illustration-slot {
       position: relative;
       border: none;
       border-radius: 0;
+      flex: 0 0 auto;
       aspect-ratio: 1 / 1;
-      width: 100%;
       height: auto;
-      min-height: 0;
+      width: auto;
+      align-self: stretch;
+      min-width: 120px;
+      max-width: 42%;
       background: var(--color-surface-soft);
-      align-self: start;
     }
     .diff-card .illustration-slot img {
       position: absolute;
@@ -633,6 +635,7 @@
       display: block;
     }
     .diff-card-body {
+      flex: 1 1 auto;
       padding: 24px 28px;
       display: flex;
       flex-direction: column;
@@ -655,11 +658,14 @@
     }
     @media (max-width: 600px) {
       .diff-card {
-        grid-template-columns: 1fr;
+        flex-direction: column;
       }
       .diff-card .illustration-slot {
-        aspect-ratio: 1 / 1;
         width: 100%;
+        max-width: none;
+        min-width: 0;
+        aspect-ratio: 1 / 1;
+        align-self: auto;
       }
     }
     .pain-scale {
