@@ -595,12 +595,26 @@
     }
     .diff-card {
       background: #fff;
-      padding: 28px;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .diff-card .illustration-slot {
+      border: none;
+      border-radius: 0;
+      aspect-ratio: 1;
+      background: var(--color-surface-soft);
+    }
+    .diff-card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
     .diff-card h3 {
       font-size: 18px;
       font-weight: 500;
-      margin-bottom: 12px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -662,10 +676,24 @@
     }
     .method-card {
       background: #fff;
-      padding: 28px;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .method-card .illustration-slot {
+      border: none;
+      border-radius: 0;
+      aspect-ratio: 1;
+      background: var(--color-surface-soft);
+    }
+    .method-card-body {
+      padding: 24px;
       display: flex;
       flex-direction: column;
       gap: 12px;
+      flex: 1;
     }
     .method-icon {
       width: 48px;
@@ -981,7 +1009,7 @@
     }
     .diag-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
     .diag-card {
@@ -1092,7 +1120,7 @@
     <section class="hero" id="hero">
       <div class="container hero-grid">
         <div class="hero-content">
-          <div class="hero-label">Ревматология · Суставы</div>
+          <div class="hero-label">Ревматология · Суставы · в Ставрополе</div>
           <h1 class="shimmer-text">
             <span class="line">Лечение артрита</span>
             <span class="line">и артроза</span>
@@ -1126,12 +1154,22 @@
 
         <div class="diff-grid">
           <article class="diff-card">
-            <h3><i class="fa-solid fa-fire" aria-hidden="true"></i> Артрит</h3>
-            <p>Воспалительные заболевания суставов, которые могут сопровождаться болью, отёком, скованностью и ограничением движений.</p>
+            <div class="illustration-slot" id="ill-artrit">
+              <span class="illustration-slot-label">Иллюстрация</span>
+            </div>
+            <div class="diff-card-body">
+              <h3><i class="fa-solid fa-fire" aria-hidden="true"></i> Артрит</h3>
+              <p>Воспалительные заболевания суставов, которые могут сопровождаться болью, отёком, скованностью и ограничением движений.</p>
+            </div>
           </article>
           <article class="diff-card">
-            <h3><i class="fa-solid fa-bone" aria-hidden="true"></i> Артроз</h3>
-            <p>Заболевание, связанное с изменениями суставных тканей. Может проявляться болью, скованностью и постепенным ограничением функции сустава.</p>
+            <div class="illustration-slot" id="ill-artroz">
+              <span class="illustration-slot-label">Иллюстрация</span>
+            </div>
+            <div class="diff-card-body">
+              <h3><i class="fa-solid fa-bone" aria-hidden="true"></i> Артроз</h3>
+              <p>Заболевание, связанное с изменениями суставных тканей. Может проявляться болью, скованностью и постепенным ограничением функции сустава.</p>
+            </div>
           </article>
         </div>
 
@@ -1261,28 +1299,44 @@
         <p class="section-desc" style="margin-bottom: 24px;">В программу лечения могут входить:</p>
         <div class="methods-grid">
           <article class="method-card">
-            <div class="method-icon"><i class="fa-solid fa-pills" aria-hidden="true"></i></div>
-            <h3><span class="method-num">01</span> Медикаментозная терапия</h3>
-            <p>По назначению врача и с учётом показаний и противопоказаний.</p>
-            <span class="method-tag">По назначению врача</span>
+            <div class="illustration-slot" id="ill-method-01">
+              <span class="illustration-slot-label">Иллюстрация</span>
+            </div>
+            <div class="method-card-body">
+              <h3><span class="method-num">01</span> Медикаментозная терапия</h3>
+              <p>По назначению врача и с учётом показаний и противопоказаний.</p>
+              <span class="method-tag">По назначению врача</span>
+            </div>
           </article>
           <article class="method-card">
-            <div class="method-icon"><i class="fa-solid fa-wave-square" aria-hidden="true"></i></div>
-            <h3><span class="method-num">02</span> Физиотерапевтические методы</h3>
-            <p>Применяются в составе комплексной терапии при наличии показаний.</p>
-            <span class="method-tag">В составе программы</span>
+            <div class="illustration-slot" id="ill-method-02">
+              <span class="illustration-slot-label">Иллюстрация</span>
+            </div>
+            <div class="method-card-body">
+              <h3><span class="method-num">02</span> Физиотерапевтические методы</h3>
+              <p>Применяются в составе комплексной терапии при наличии показаний.</p>
+              <span class="method-tag">В составе программы</span>
+            </div>
           </article>
           <article class="method-card">
-            <div class="method-icon"><i class="fa-solid fa-person-walking" aria-hidden="true"></i></div>
-            <h3><span class="method-num">03</span> Лечебная физкультура</h3>
-            <p>Рекомендации по физической активности с учётом состояния пациента.</p>
-            <span class="method-tag">Индивидуально</span>
+            <div class="illustration-slot" id="ill-method-03">
+              <span class="illustration-slot-label">Иллюстрация</span>
+            </div>
+            <div class="method-card-body">
+              <h3><span class="method-num">03</span> Лечебная физкультура</h3>
+              <p>Рекомендации по физической активности с учётом состояния пациента.</p>
+              <span class="method-tag">Индивидуально</span>
+            </div>
           </article>
           <article class="method-card">
-            <div class="method-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
-            <h3><span class="method-num">04</span> Контроль динамики</h3>
-            <p>Оценка состояния и корректировка тактики при необходимости.</p>
-            <span class="method-tag">По показаниям</span>
+            <div class="illustration-slot" id="ill-method-04">
+              <span class="illustration-slot-label">Иллюстрация</span>
+            </div>
+            <div class="method-card-body">
+              <h3><span class="method-num">04</span> Контроль динамики</h3>
+              <p>Оценка состояния и корректировка тактики при необходимости.</p>
+              <span class="method-tag">По показаниям</span>
+            </div>
           </article>
         </div>
 
@@ -1294,21 +1348,26 @@
 
     <!-- DOCTOR -->
     <section class="doctor-section" id="doctor">
-      <div class="container doctor-grid">
-        <div class="doctor-photo-slot" id="ill-doctor">
-          <span class="illustration-slot-label">Иллюстрация врача</span>
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head-left">Специалист</div>
+          <span class="section-num">(05)</span>
         </div>
-        <div>
-          <div class="doctor-label">Специалист · (05)</div>
-          <h2>Наталья Васильевна Журбина</h2>
-          <p class="doctor-role">Врач-ревматолог · кандидат медицинских наук · стаж 46 лет</p>
-          <p class="doctor-text">
-            Наталья Васильевна проводит диагностику и лечение ревматологических заболеваний. На консультации врач оценивает жалобы, проводит осмотр и определяет дальнейшую тактику.
-          </p>
-          <a href="#cta" class="btn-ember">
-            Записаться на консультацию
-            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-          </a>
+        <div class="doctor-grid">
+          <div class="doctor-photo-slot" id="ill-doctor">
+            <span class="illustration-slot-label">Иллюстрация врача</span>
+          </div>
+          <div>
+            <h2>Наталья Васильевна Журбина</h2>
+            <p class="doctor-role">Врач-ревматолог · кандидат медицинских наук · стаж 46 лет</p>
+            <p class="doctor-text">
+              Наталья Васильевна проводит диагностику и лечение ревматологических заболеваний. На консультации врач оценивает жалобы, проводит осмотр и определяет дальнейшую тактику.
+            </p>
+            <a href="#cta" class="btn-ember">
+              Записаться на консультацию
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
       </div>
     </section>
