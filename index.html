@@ -446,8 +446,7 @@
       position: relative;
       border: 1px solid var(--color-border);
       border-radius: var(--radius-card);
-      isolation: isolate;
-      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease;
     }
     .about-card::before,
     .symptom-block::before,
@@ -457,21 +456,21 @@
     .diag-card::before {
       content: '';
       position: absolute;
-      inset: -1px;
+      inset: 0;
       border-radius: inherit;
-      padding: 1.5px;
+      padding: 2px;
       background: conic-gradient(
         from var(--card-beam, 0deg),
         transparent 0deg,
-        color-mix(in srgb, #FF6B35 15%, transparent) 20deg,
-        #FF6B35 50deg,
-        color-mix(in srgb, #FF6B35 40%, #fff) 58deg,
-        transparent 70deg,
+        color-mix(in srgb, #FF6B35 25%, transparent) 25deg,
+        #FF6B35 55deg,
+        color-mix(in srgb, #FF6B35 55%, transparent) 70deg,
+        transparent 90deg,
         transparent 180deg,
-        color-mix(in srgb, #1A659E 20%, transparent) 200deg,
-        #1A659E 230deg,
-        color-mix(in srgb, #1A659E 35%, #fff) 238deg,
-        transparent 250deg,
+        color-mix(in srgb, #1A659E 30%, transparent) 205deg,
+        #1A659E 235deg,
+        color-mix(in srgb, #1A659E 50%, transparent) 250deg,
+        transparent 270deg,
         transparent 360deg
       );
       -webkit-mask:
@@ -484,8 +483,8 @@
       mask-composite: exclude;
       pointer-events: none;
       opacity: 0;
-      transition: opacity 0.35s ease;
-      z-index: 1;
+      transition: opacity 0.3s ease;
+      z-index: 2;
     }
     @media (hover: hover) and (pointer: fine) {
       .about-card:hover,
@@ -608,7 +607,7 @@
     .diff-card {
       background: #fff;
       padding: 0;
-      overflow: hidden;
+      /* overflow не на карточке — иначе режет animated beam; полукруг клипается в .illustration-slot */
       display: flex;
       flex-direction: row;
       align-items: stretch;
