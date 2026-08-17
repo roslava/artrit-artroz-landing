@@ -866,16 +866,26 @@
     .method-card h3 {
       font-size: 18px;
       font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 10px;
       color: #fff;
     }
     .method-num {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #111;
+      color: #fff;
       font-size: 13px;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.65);
-      letter-spacing: 0.04em;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
     }
     .method-card p {
       font-size: 15px;
@@ -1472,40 +1482,44 @@
         <div class="methods-grid">
           <article class="method-card">
             <div class="illustration-slot" id="ill-method-01">
+              <span class="method-num">01</span>
               <img src="https://storage.yandexcloud.net/mcv26/med01.webp" alt="Медикаментозная терапия" width="400" height="400" loading="lazy" />
             </div>
             <div class="method-card-body">
-              <h3><span class="method-num">01</span> Медикаментозная терапия</h3>
+              <h3>Медикаментозная терапия</h3>
               <p>По назначению врача и с учётом показаний и противопоказаний.</p>
               <span class="method-tag">По назначению врача</span>
             </div>
           </article>
           <article class="method-card">
             <div class="illustration-slot" id="ill-method-02">
+              <span class="method-num">02</span>
               <img src="https://storage.yandexcloud.net/mcv26/med04.webp" alt="Физиотерапевтические методы" width="400" height="400" loading="lazy" />
             </div>
             <div class="method-card-body">
-              <h3><span class="method-num">02</span> Физиотерапевтические методы</h3>
+              <h3>Физиотерапевтические методы</h3>
               <p>Применяются в составе комплексной терапии при наличии показаний.</p>
               <span class="method-tag">В составе программы</span>
             </div>
           </article>
           <article class="method-card">
             <div class="illustration-slot" id="ill-method-03">
+              <span class="method-num">03</span>
               <img src="https://storage.yandexcloud.net/mcv26/med05.webp" alt="Лечебная физкультура" width="400" height="400" loading="lazy" />
             </div>
             <div class="method-card-body">
-              <h3><span class="method-num">03</span> Лечебная физкультура</h3>
+              <h3>Лечебная физкультура</h3>
               <p>Рекомендации по физической активности с учётом состояния пациента.</p>
               <span class="method-tag">Индивидуально</span>
             </div>
           </article>
           <article class="method-card">
             <div class="illustration-slot" id="ill-method-04">
+              <span class="method-num">04</span>
               <img src="https://storage.yandexcloud.net/mcv26/med06.webp" alt="Контроль динамики" width="400" height="400" loading="lazy" />
             </div>
             <div class="method-card-body">
-              <h3><span class="method-num">04</span> Контроль динамики</h3>
+              <h3>Контроль динамики</h3>
               <p>Оценка состояния и корректировка тактики при необходимости.</p>
               <span class="method-tag">По показаниям</span>
             </div>
